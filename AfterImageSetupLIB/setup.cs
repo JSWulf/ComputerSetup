@@ -11,11 +11,12 @@ namespace AfterImageSetupLIB
     {
         public static string HostName { get; set; }
         public static string UserName { get; set; }
-        public static string TimeZone { get; set; }
-        public static bool PinFiles { get; set; }
-        public static bool Manuals { get; set; }
-        public static string PowerSettings { get; set; }
-        public static string Printer { get; set; }
+        public static TimeZoneConfig TimeZone { get; set; }
+        public static PinUnpin PinFiles { get; set; }
+        public static Manuals Manuals { get; set; }
+        public static PowerOptions PowerSettings { get; set; }
+        public static Printer Printer { get; set; }
+
         private static StringBuilder Output = new StringBuilder();
 
 
@@ -31,27 +32,27 @@ namespace AfterImageSetupLIB
             }
             Output.Clear();
 
-            if (!string.IsNullOrEmpty(TimeZone))
+            if (TimeZone != null)
             {
                 //set timezone
             }
 
-            if (PinFiles)
+            if (PinFiles != null)
             {
                 //set PinFiles
             }
 
-            if (Manuals)
+            if (Manuals != null)
             {
                 //set PinFiles
             }
 
-            if (!string.IsNullOrEmpty(PowerSettings))
+            if (PowerSettings != null)
             {
                 //set PinFiles
             }
 
-            if (!string.IsNullOrEmpty(Printer))
+            if (Printer != null)
             {
                 //set PinFiles
             }
@@ -85,5 +86,6 @@ namespace AfterImageSetupLIB
 
         }
         
+
     }
 }

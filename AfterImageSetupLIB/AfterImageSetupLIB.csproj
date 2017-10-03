@@ -40,8 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InternetZone.cs" />
+    <Compile Include="Manuals.cs" />
+    <Compile Include="PinUnpin.cs" />
+    <Compile Include="PowerOptions.cs" />
+    <Compile Include="Printer.cs" />
     <Compile Include="setup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimeZoneConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
