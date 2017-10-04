@@ -50,14 +50,14 @@ strProfile = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
 	End Sub
 
 '*** add item to zonemap
-	Sub AddZone(byval DomainName)
+	Sub AddZone(ByVal DomainName)
 		strKeyPath = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\" & DomainName
 		objReg.CreateKey HKEY_CURRENT_USER, strKeyPath 
 		objReg.SetDWORDValue HKEY_CURRENT_USER, strKeyPath, "*", 1 
 	End Sub
 	
-	Sub run(byval run)
-		wshShell.run
+	Sub run(ByVal torun)
+		wshShell.run torun
 	End Sub
 	
 	
@@ -76,13 +76,13 @@ strProfile = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
 	Call pinToTaskbar("Windows Media Player.lnk", strAllUsersProgramsPath, 0)
 
 ' *** set timezone
-	Call run "cmd.exe /C TZUTIL /s ""Pacific Standard Time"" "
+	Call run("cmd.exe /C TZUTIL /s ""Pacific Standard Time"" ")
 
 ' *** set power options
-	Call run "cmd.exe /C powercfg -SETACVALUEINDEX 381b4222-f694-41f0-9685-ff5bb260df2e 4f971e89-eebd-4455-a8de-9e59040e7347 5ca83367-6e45-459f-a27b-476b1d01c936 0"
-	Call run "cmd.exe /C powercfg -SETDCVALUEINDEX 381b4222-f694-41f0-9685-ff5bb260df2e 4f971e89-eebd-4455-a8de-9e59040e7347 5ca83367-6e45-459f-a27b-476b1d01c936 0"
+	Call run("cmd.exe /C powercfg -SETACVALUEINDEX 381b4222-f694-41f0-9685-ff5bb260df2e 4f971e89-eebd-4455-a8de-9e59040e7347 5ca83367-6e45-459f-a27b-476b1d01c936 0")
+	Call run("cmd.exe /C powercfg -SETDCVALUEINDEX 381b4222-f694-41f0-9685-ff5bb260df2e 4f971e89-eebd-4455-a8de-9e59040e7347 5ca83367-6e45-459f-a27b-476b1d01c936 0")
 
-	Call run "cmd.exe /C gpupdate /force"
+	Call run("cmd.exe /C gpupdate /force")
 	call SetPrinter("\\ushibm151.us.asml.com\USHIBPRT")
 	
 	call cleanup()

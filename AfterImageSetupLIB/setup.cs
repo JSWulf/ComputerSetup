@@ -17,20 +17,21 @@ namespace AfterImageSetupLIB
         public static PowerOptions PowerSettings { get; set; }
         public static Printer Printer { get; set; }
 
-        private static StringBuilder Output = new StringBuilder();
+        private static List<string> Output = new List<string>();
 
 
         public static string Run()
         {
             if (string.IsNullOrEmpty(HostName))
             {
-                return "Error -- not hostname received";
+                return "Error -- no hostname received";
             }
             if (string.IsNullOrEmpty(UserName) && !UserExists(UserName))
             {
                 UserName = "Default";
             }
             Output.Clear();
+            addFunctions();
 
             if (TimeZone != null)
             {
@@ -67,8 +68,12 @@ namespace AfterImageSetupLIB
             }
         }
 
-        private static bool writeFile(StringBuilder contents)
+        public static bool writeFile(List<string> contents)
         {
+            //var ConToArray = contents.
+            Console.WriteLine("write file");
+            File.WriteAllLines("Output.vbs", contents);
+            Console.WriteLine("Success");
 
             return true;
         }
@@ -84,6 +89,33 @@ namespace AfterImageSetupLIB
                 return false;
             }
 
+        }
+
+        public static List<string> readFile(string file)
+        {
+            if (!File.Exists(file))
+            {
+                throw new FileNotFoundException();
+            }
+
+            var fileLines = File.ReadAllLines(file);
+            var newOutput = new List<string>();
+
+            foreach (var line in fileLines)
+            {
+                //Console.WriteLine(line);
+                newOutput.Add(line);
+            }
+
+            return newOutput;
+
+        }
+
+        private static void addFunctions()
+        {
+            var getCode = readFile(@"..\..\..\PinUnpin.vbs");
+            
+            Output.AddRange(getCode);
         }
         
 
