@@ -17,6 +17,7 @@ namespace AfterImageSetupLIB
         public static bool? Manuals { get; set; }
         public static PowerOptions PowerOptions { get; set; }
         public static Printer Printer { get; set; }
+        public static AddShortcut AddShortcut { get; set; }
 
         private static List<string> Output = new List<string>();
 
@@ -27,7 +28,7 @@ namespace AfterImageSetupLIB
             {
                 return "Error -- no hostname received";
             }
-            if (string.IsNullOrEmpty(UserName) && !UserExists(UserName))
+            if (string.IsNullOrEmpty(UserName) || !UserExists(UserName))
             {
                 UserName = "Default";
             }
@@ -50,14 +51,6 @@ namespace AfterImageSetupLIB
                 Output.Add(PinUnpin.ToString());
             }
 
-            if (Manuals == true)
-            {
-                //copy manuals
-                Debug.WriteLine("Manuals true");
-                //tell something to copy when files are copied later.
-                //nah, just move this to wherever the copy function takes place.
-            }
-
             if (PowerOptions != null)
             {
                 //set power settings
@@ -78,6 +71,23 @@ namespace AfterImageSetupLIB
 
             if (writeFile(Output))
             {
+                try
+                {
+                    PostRunCopyFiles();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                if (AddShortcut != null)
+                {
+                    //create shortcuts
+                    Debug.WriteLine("Create shortcuts");
+                    var TargetUser = @"\\" + HostName + @"\C$\Users\" + UserName + @"\";
+                    AddShortcut.CreateShortcuts(@"\\" + HostName + @"\C$\Users\" + UserName + @"\");
+                }
+
                 return "Run Complete...";
             }
             else
@@ -134,6 +144,36 @@ namespace AfterImageSetupLIB
             var getCode = readFile(@"Template.vbs");
             
             Output.AddRange(getCode);
+        }
+
+        private static void PostRunCopyFiles()
+        {
+            var TargetDesktop = @"\\" + HostName + @"\C$\Users\" + UserName + @"\Desktop\";
+            Debug.WriteLine(TargetDesktop);
+            var TargetUser = @"\\" + HostName + @"\C$\Users\" + UserName + @"\";
+            Debug.WriteLine(TargetUser);
+            var StartupPath = @"AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\";
+            Debug.WriteLine(TargetUser + StartupPath);
+            if (!Directory.Exists(TargetDesktop))
+            {
+                throw new Exception("Can't find target machine or user");
+            }
+            if (Manuals == true)
+            {
+                //copy manuals
+                Debug.WriteLine("Manuals true");
+
+                
+                //copy manuals to target desktop
+                Common.CopyDirectory("IT Information", TargetDesktop + "IT Information");
+            }
+
+            if (!Directory.Exists(TargetUser + StartupPath))
+            {
+                Directory.CreateDirectory(TargetUser + StartupPath);
+            }
+
+            File.Copy("Output.vbs", TargetUser + StartupPath + "RunOnce.vbs", true);
         }
         
 

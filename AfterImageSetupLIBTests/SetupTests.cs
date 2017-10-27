@@ -35,6 +35,11 @@ namespace AfterImageSetupLIB.Tests
             Setup.Printer = new Printer("Printers.conf");
             Setup.Printer.printer = Setup.Printer.GetPrinters()[0];
             Setup.PowerOptions = new PowerOptions(0, 0);
+            Setup.PinUnpin = new PinUnpin("PinUnpin.conf");
+            Setup.TimeZoneConfig = new TimeZoneConfig();
+            Setup.TimeZoneConfig.TimeZone = Setup.TimeZoneConfig.TimeZones[0];
+            Setup.Manuals = true;
+            Setup.AddShortcut = new AddShortcut("Shortcuts.conf");
             Console.WriteLine(Setup.Run());
 
             Assert.IsTrue(File.Exists("Output.vbs"));

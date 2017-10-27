@@ -32,7 +32,7 @@ namespace AfterImageSetupLIB
             {
                 throw new Exception("TimeZone not selected");
             }
-            return "Call run(\"cmd.exe / C TZUTIL / s \"\"" + TimeZone + "\"\" \")" + Environment.NewLine;
+            return "     Call run(\"cmd.exe / C TZUTIL / s \"\"" + TimeZone + "\"\" \")" + Environment.NewLine;
         }
 
     }

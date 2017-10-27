@@ -46,9 +46,9 @@ namespace AfterImageSetupLIB
         
         private bool IsComment(string line)
         {
-            Debug.WriteLine("Is a comment: " + line.Trim());
             if (line.Trim().StartsWith("#"))
             {
+                Debug.WriteLine("Is a comment: " + line.Trim());
                 return true;
             }
             return false;
