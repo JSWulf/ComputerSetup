@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace AfterImageSetupLIB
 {
@@ -12,9 +13,9 @@ namespace AfterImageSetupLIB
         public static string HostName { get; set; }
         public static string UserName { get; set; }
         public static TimeZoneConfig TimeZone { get; set; }
-        public static PinUnpin PinFiles { get; set; }
-        public static Manuals Manuals { get; set; }
-        public static PowerOptions PowerSettings { get; set; }
+        public static PinUnpin PinUnpin { get; set; }
+        public static bool? Manuals { get; set; }
+        public static PowerOptions PowerOptions { get; set; }
         public static Printer Printer { get; set; }
 
         private static List<string> Output = new List<string>();
@@ -32,31 +33,44 @@ namespace AfterImageSetupLIB
             }
             Output.Clear();
             addFunctions();
-
+            Output.Add("     Call run(\"cmd.exe / C gpupdate / force\")");
             if (TimeZone != null)
             {
                 //set timezone
+                Debug.WriteLine("TimeZone not null");
             }
 
-            if (PinFiles != null)
+            if (PinUnpin != null)
             {
                 //set PinFiles
+                Debug.WriteLine("PinUnpin not null");
             }
 
-            if (Manuals != null)
+            if (Manuals == true)
             {
-                //set PinFiles
+                //copy manuals
+                Debug.WriteLine("Manuals true");
+                //tell something to copy when files are copied later.
+                //nah, just move this to wherever the copy function takes place.
             }
 
-            if (PowerSettings != null)
+            if (PowerOptions != null)
             {
-                //set PinFiles
+                //set power settings
+                Debug.WriteLine("Power Options not null");
+                Output.Add("' *** set Power");
+                Output.Add(PowerOptions.ToString());
             }
 
             if (Printer != null)
             {
-                //set PinFiles
+                //set printer
+                Debug.WriteLine("Printer not null");
+                Output.Add("' *** set Printer");
+                Output.Add("     " + Printer);
             }
+
+            Output.Add(Environment.NewLine + "     call cleanup()");
 
             if (writeFile(Output))
             {
@@ -113,7 +127,7 @@ namespace AfterImageSetupLIB
 
         private static void addFunctions()
         {
-            var getCode = readFile(@"..\..\..\PinUnpin.vbs");
+            var getCode = readFile(@"Template.vbs");
             
             Output.AddRange(getCode);
         }

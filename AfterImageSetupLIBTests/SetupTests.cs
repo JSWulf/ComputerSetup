@@ -32,6 +32,9 @@ namespace AfterImageSetupLIB.Tests
         public void RunTest()
         {
             Setup.HostName = "Localhost";
+            Setup.Printer = new Printer("Printers.conf");
+            Setup.Printer.printer = Setup.Printer.GetPrinters()[0];
+            Setup.PowerOptions = new PowerOptions(0, 0);
             Console.WriteLine(Setup.Run());
 
             Assert.IsTrue(File.Exists("Output.vbs"));

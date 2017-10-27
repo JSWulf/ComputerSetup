@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace AfterImageSetupLIB
 {
@@ -12,9 +13,12 @@ namespace AfterImageSetupLIB
         public Config(string file)
         {
             ConfigFile = file;
+            Items = new List<string>();
             try
             {
+                Debug.WriteLine("read file");
                 ReadConfigFile();
+                Debug.WriteLine("read file complete");
             }
             catch (Exception)
             {
@@ -26,17 +30,29 @@ namespace AfterImageSetupLIB
 
         private void ReadConfigFile()
         {
+            Debug.WriteLine("Reading " + ConfigFile);
+            
             foreach (var line in File.ReadAllLines(ConfigFile))
             {
-                if (!line.StartsWith("#"))
+                
+                if (!IsComment(line))
                 {
-                    Items.Add(line);
+                    Items.Add(line.Trim());
                 }
+                Debug.WriteLine(line);
             }
         }
 
         
-
+        private bool IsComment(string line)
+        {
+            Debug.WriteLine("Is a comment: " + line.Trim());
+            if (line.Trim().StartsWith("#"))
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
     
