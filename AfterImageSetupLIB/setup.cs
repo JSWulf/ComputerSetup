@@ -12,7 +12,7 @@ namespace AfterImageSetupLIB
     {
         public static string HostName { get; set; }
         public static string UserName { get; set; }
-        public static TimeZoneConfig TimeZone { get; set; }
+        public static TimeZoneConfig TimeZoneConfig { get; set; }
         public static PinUnpin PinUnpin { get; set; }
         public static bool? Manuals { get; set; }
         public static PowerOptions PowerOptions { get; set; }
@@ -34,16 +34,20 @@ namespace AfterImageSetupLIB
             Output.Clear();
             addFunctions();
             Output.Add("     Call run(\"cmd.exe / C gpupdate / force\")");
-            if (TimeZone != null)
+            if (TimeZoneConfig != null)
             {
                 //set timezone
                 Debug.WriteLine("TimeZone not null");
+                Output.Add("' *** set timezone");
+                Output.Add(TimeZoneConfig.ToString());
             }
 
             if (PinUnpin != null)
             {
                 //set PinFiles
                 Debug.WriteLine("PinUnpin not null");
+                Output.Add("' *** set pins");
+                Output.Add(PinUnpin.ToString());
             }
 
             if (Manuals == true)
