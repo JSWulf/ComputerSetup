@@ -85,7 +85,7 @@ namespace AfterImageSetupLIB
                     //create shortcuts
                     Debug.WriteLine("Create shortcuts");
                     var TargetUser = @"\\" + HostName + @"\C$\Users\" + UserName + @"\";
-                    AddShortcut.CreateShortcuts(@"\\" + HostName + @"\C$\Users\" + UserName + @"\");
+                    AddShortcut.CreateShortcuts(TargetUser);
                 }
 
                 return "Run Complete...";

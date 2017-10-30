@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IWshRuntimeLibrary;
+using System.Diagnostics;
 
 namespace AfterImageSetupLIB
 {
@@ -20,6 +21,8 @@ namespace AfterImageSetupLIB
         {
             LnkFile = shortcut;
             Target = target;
+            Debug.WriteLine(LnkFile);
+            Debug.WriteLine(Target);
         }
         /// <summary>
         /// *.lnk file
@@ -51,12 +54,20 @@ namespace AfterImageSetupLIB
 
         public void CreateShortcut()
         {
-        //object shDesktop = (object)"Desktop";
-        WshShell shell = new WshShell();
-        //string shortcutAddress = (string)shell.SpecialFolders.Item(ref shDesktop) + @"\Notepad.lnk";
-        IWshShortcut s = (IWshShortcut)shell.CreateShortcut(LnkFile);
-            s.Description = Description;
-            s.Hotkey = Hotkey;
+            Debug.WriteLine("Lnk: " + LnkFile);
+            Debug.WriteLine("des: " + Description);
+            Debug.WriteLine("hot: " + Hotkey);
+            Debug.WriteLine("tar: " + Target);
+            //object shDesktop = (object)"Desktop";
+            WshShell shell = new WshShell();
+            //string shortcutAddress = (string)shell.SpecialFolders.Item(ref shDesktop) + @"\Notepad.lnk";
+            IWshShortcut s = (IWshShortcut)shell.CreateShortcut(LnkFile);
+            //s.Description = Description;
+            //s.Hotkey = Hotkey;
+            if (!string.IsNullOrEmpty(Description))
+            {s.Description = Description;}
+            if (!string.IsNullOrEmpty(Hotkey))
+            { s.Hotkey = Hotkey; }
             s.TargetPath = Target;
             s.Save();
         }

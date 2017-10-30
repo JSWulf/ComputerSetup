@@ -12,6 +12,15 @@ namespace AfterImageSetupLIB
         {
             ShortcutConfig = new Config(ConfigFile);
         }
+        public AddShortcut(string ConfigFile, string HostName, string UserName)
+        {
+            ShortcutConfig = new Config(ConfigFile);
+            Host = HostName;
+            User = UserName;
+        }
+
+        public string Host { get; set; }
+        public string User { get; set; }
 
         Config ShortcutConfig;
 
@@ -23,7 +32,7 @@ namespace AfterImageSetupLIB
 
                 try
                 {
-                    Shortcut shortcut = new Shortcut(s_info[0], s_info[1]);
+                    Shortcut shortcut = new Shortcut(UserProfile + @"\" + s_info[0].Trim(), s_info[1].Trim());
                     shortcut.CreateShortcut();
                 }
                 catch (Exception e)
