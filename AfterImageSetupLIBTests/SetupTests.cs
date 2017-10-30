@@ -40,6 +40,9 @@ namespace AfterImageSetupLIB.Tests
             Setup.TimeZoneConfig.TimeZone = Setup.TimeZoneConfig.TimeZones[0];
             Setup.Manuals = true;
             Setup.AddShortcut = new AddShortcut("Shortcuts.conf");
+
+            Setup.InternetZone = new InternetZone("InternetZone.conf");
+
             Console.WriteLine(Setup.Run());
 
             Assert.IsTrue(File.Exists("Output.vbs"));

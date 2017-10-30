@@ -18,6 +18,7 @@ namespace AfterImageSetupLIB
         public static PowerOptions PowerOptions { get; set; }
         public static Printer Printer { get; set; }
         public static AddShortcut AddShortcut { get; set; }
+        public static InternetZone InternetZone { get; set; }
 
         private static List<string> Output = new List<string>();
 
@@ -59,6 +60,14 @@ namespace AfterImageSetupLIB
                 Output.Add(PowerOptions.ToString());
             }
 
+            if (InternetZone != null)
+            {
+                //set internetzone
+                Debug.WriteLine("InternetZone not null");
+                Output.Add("' *** Add Zone");
+                Output.Add(InternetZone.ToString());
+            }
+
             if (Printer != null)
             {
                 //set printer
@@ -66,6 +75,8 @@ namespace AfterImageSetupLIB
                 Output.Add("' *** set Printer");
                 Output.Add("     " + Printer);
             }
+
+
 
             Output.Add(Environment.NewLine + "     call cleanup()");
 
