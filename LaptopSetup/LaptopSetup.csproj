@@ -78,5 +78,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AfterImageSetupLIB\AfterImageSetupLIB.csproj">
+      <Project>{fa16c979-1dfa-4530-b6b4-88fa3e1a2949}</Project>
+      <Name>AfterImageSetupLIB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

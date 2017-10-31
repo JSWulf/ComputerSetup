@@ -16,14 +16,28 @@ namespace LaptopSetup
         {
             InitializeComponent();
 
-            var output = new StringBuilder();
+            var args = Environment.GetCommandLineArgs();
 
-            foreach (var arg in Environment.GetCommandLineArgs())
+            if (args.Length > 2)
             {
-                output.Append(arg + Environment.NewLine);
+                HostName = args[1];
+                UserName = args[2];
+            }
+            else
+            {
+                HostName = "localhost";
+                UserName = Environment.UserName;
             }
 
-            MessageBox.Show(output.ToString());
+            label1.Text = $"Target: {HostName}, User: {UserName}";
+        }
+
+        public string HostName { get; set; }
+        public string UserName { get; set; }
+
+        private void checkBoxAllUsers_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
