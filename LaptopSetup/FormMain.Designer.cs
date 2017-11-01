@@ -80,7 +80,6 @@
             this.checkBoxAllUsers.TabIndex = 2;
             this.checkBoxAllUsers.Text = "Apply to all users.";
             this.checkBoxAllUsers.UseVisualStyleBackColor = true;
-            this.checkBoxAllUsers.CheckedChanged += new System.EventHandler(this.checkBoxAllUsers_CheckedChanged);
             // 
             // checkBoxPrinter
             // 
@@ -91,6 +90,7 @@
             this.checkBoxPrinter.TabIndex = 3;
             this.checkBoxPrinter.Text = "Printer:";
             this.checkBoxPrinter.UseVisualStyleBackColor = true;
+            this.checkBoxPrinter.CheckedChanged += new System.EventHandler(this.checkBoxPrinter_CheckedChanged);
             // 
             // checkBoxTimeZone
             // 
@@ -101,6 +101,7 @@
             this.checkBoxTimeZone.TabIndex = 4;
             this.checkBoxTimeZone.Text = "TimeZone:";
             this.checkBoxTimeZone.UseVisualStyleBackColor = true;
+            this.checkBoxTimeZone.CheckedChanged += new System.EventHandler(this.checkBoxTimeZone_CheckedChanged);
             // 
             // checkBoxPowerOptions
             // 
@@ -111,6 +112,7 @@
             this.checkBoxPowerOptions.TabIndex = 5;
             this.checkBoxPowerOptions.Text = "Set Power Options:";
             this.checkBoxPowerOptions.UseVisualStyleBackColor = true;
+            this.checkBoxPowerOptions.CheckedChanged += new System.EventHandler(this.checkBoxPowerOptions_CheckedChanged);
             // 
             // checkBoxPinUnpin
             // 
@@ -196,6 +198,7 @@
             this.buttonCancel.TabIndex = 14;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonRun
             // 

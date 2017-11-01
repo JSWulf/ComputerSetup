@@ -35,9 +35,29 @@ namespace LaptopSetup
         public string HostName { get; set; }
         public string UserName { get; set; }
 
-        private void checkBoxAllUsers_CheckedChanged(object sender, EventArgs e)
-        {
+        
 
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void checkBoxPowerOptions_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxPlugged.Enabled = checkBoxPowerOptions.Checked;
+            comboBoxBattery.Enabled = checkBoxPowerOptions.Checked;
+        }
+
+        private void checkBoxPrinter_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxPrinter.Enabled = checkBoxPrinter.Checked;
+        }
+
+        private void checkBoxTimeZone_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxTimeZone.Enabled = checkBoxTimeZone.Checked;
+
+            Settings.Update(checkBoxTimeZone, checkBoxTimeZone.Checked);
         }
     }
 }

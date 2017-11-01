@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaptopSetup", "LaptopSetup\LaptopSetup.csproj", "{5B20E958-F188-4FE6-B87A-0BA115326B8D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AfterImageSetupLIB", "AfterImageSetupLIB\AfterImageSetupLIB.csproj", "{FA16C979-1DFA-4530-B6B4-88FA3E1A2949}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AfterImageSetupLIBTests", "AfterImageSetupLIBTests\AfterImageSetupLIBTests.csproj", "{C43211BA-5E45-4373-BF68-8CD77D7A0F8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaptopSetupTests", "LaptopSetupTests\LaptopSetupTests.csproj", "{79056287-E771-481D-9F9E-E16A674B5599}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C43211BA-5E45-4373-BF68-8CD77D7A0F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C43211BA-5E45-4373-BF68-8CD77D7A0F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C43211BA-5E45-4373-BF68-8CD77D7A0F8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79056287-E771-481D-9F9E-E16A674B5599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79056287-E771-481D-9F9E-E16A674B5599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79056287-E771-481D-9F9E-E16A674B5599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79056287-E771-481D-9F9E-E16A674B5599}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
