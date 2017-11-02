@@ -8,23 +8,33 @@ namespace AfterImageSetupLIB
 {
     public class TimeZoneConfig
     {
-        public TimeZoneConfig()
-        {
-            TimeZones = new List<string>() {
+        //public TimeZoneConfig()
+        //{
+            
+        //}
+        public string TimeZone { get; set; }
+        
+        private List<string> timeZones = new List<string>() {
                 "Pacific Standard Time",
                 "Mountain Daylight Time",
                 "Central Standard Time",
                 "Eastern Standard Time",
                 "W. Europe Standard Time"
             };
+        public List<string> TimeZones
+        {
+            get { return timeZones; }
+            private set { timeZones = value; }
         }
-        public string TimeZone { get; set; }
-        public List<string> TimeZones { get; private set; }
+
+
+
 
         //private List<string> ListTimeZones()
         //{
         //    return Time
         //}
+
 
         public override string ToString()
         {

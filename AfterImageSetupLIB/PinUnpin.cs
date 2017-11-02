@@ -11,7 +11,7 @@ namespace AfterImageSetupLIB
     {
         public PinUnpin(string configFile)
         {
-            pinConfig = new Config("PinUnpin.conf");
+            pinConfig = new Config(configFile);
         }
 
         private Config pinConfig;

@@ -25,13 +25,145 @@ namespace LaptopSetup.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int TimeZones {
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int TimeZoneSelect {
             get {
-                return ((int)(this["TimeZones"]));
+                return ((int)(this["TimeZoneSelect"]));
             }
             set {
-                this["TimeZones"] = value;
+                this["TimeZoneSelect"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TimeZone {
+            get {
+                return ((bool)(this["TimeZone"]));
+            }
+            set {
+                this["TimeZone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AllUsers {
+            get {
+                return ((bool)(this["AllUsers"]));
+            }
+            set {
+                this["AllUsers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Printer {
+            get {
+                return ((bool)(this["Printer"]));
+            }
+            set {
+                this["Printer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int PrinterSelect {
+            get {
+                return ((int)(this["PrinterSelect"]));
+            }
+            set {
+                this["PrinterSelect"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SetPower {
+            get {
+                return ((bool)(this["SetPower"]));
+            }
+            set {
+                this["SetPower"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int PowerPluggedSelect {
+            get {
+                return ((int)(this["PowerPluggedSelect"]));
+            }
+            set {
+                this["PowerPluggedSelect"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int PowerBattSelect {
+            get {
+                return ((int)(this["PowerBattSelect"]));
+            }
+            set {
+                this["PowerBattSelect"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool PinUnpin {
+            get {
+                return ((bool)(this["PinUnpin"]));
+            }
+            set {
+                this["PinUnpin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Manuals {
+            get {
+                return ((bool)(this["Manuals"]));
+            }
+            set {
+                this["Manuals"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Shortcuts {
+            get {
+                return ((bool)(this["Shortcuts"]));
+            }
+            set {
+                this["Shortcuts"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool InternetZone {
+            get {
+                return ((bool)(this["InternetZone"]));
+            }
+            set {
+                this["InternetZone"] = value;
             }
         }
     }

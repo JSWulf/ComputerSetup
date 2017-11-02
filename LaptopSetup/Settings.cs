@@ -10,66 +10,31 @@ namespace LaptopSetup
 {
     public static class Settings
     {
-        static private List<string> StringList = new List<string>();
-        static private List<bool> BoolList = new List<bool>();
-
-        //static public Config SettingConf = new Config(@"Conf\Settings.conf");
-
-        public static void Update<T>(object toSave, T value)
+        
+        public static void LoadSettings(FormMain Main)
         {
-            var ItemToSave = nameof(toSave);
-            var TypeToSave = typeof(T);
+            var test = Properties.Settings.Default;
 
-            if (typeof(T) == typeof(bool))
-            {
-                Console.WriteLine("we got Bool");
-            }
-            else if(typeof(T) == typeof(string))
-            {
-                Console.WriteLine("we got stringy");
-            }
+            Main.checkBoxAllUsers.Checked = test.AllUsers;
 
+            Main.checkBoxPrinter.Checked = test.Printer;
+            Main.comboBoxPrinter.Enabled = test.Printer;
+            Main.comboBoxPrinter.SelectedIndex = test.PrinterSelect;
+
+            Main.checkBoxTimeZone.Checked = test.TimeZone;
+            Main.comboBoxTimeZone.Enabled = test.TimeZone;
+            Main.comboBoxTimeZone.SelectedIndex = test.TimeZoneSelect;
+
+            Main.checkBoxPowerOptions.Checked = test.SetPower;
+            Main.comboBoxPlugged.Enabled = test.SetPower;
+            Main.comboBoxBattery.Enabled = test.SetPower;
+            Main.comboBoxPlugged.SelectedIndex = test.PowerPluggedSelect;
+            Main.comboBoxBattery.SelectedIndex = test.PowerBattSelect;
+
+            Main.checkBoxPinUnpin.Checked = test.PinUnpin;
+            Main.checkBoxManuals.Checked = test.Manuals;
+            Main.checkBoxShortcuts.Checked = test.Shortcuts;
+            Main.checkBoxInternetZones.Checked = test.InternetZone;
         }
-
-        public static bool ReadBool(object sender)
-        {
-            if (BoolList.Count == 0)
-            {
-                Console.WriteLine("empty list... read conf");
-            }
-            return false;
-        }
-
-        public static string ReadString(object sender)
-        {
-            if (StringList.Count == 0)
-            {
-                Console.WriteLine("empty list... read conf");
-            }
-            return "";
-        }
-
-
-
-
-
-
-        public static bool Check(string Setting)
-        {
-            return false;
-            
-        }
-        public static void Create<T>(string Setting, T value)
-        {
-
-            
-        }
-    }
-
-    public class Vari<T>
-    {
-        public string Name { get; set; }
-        public Type Type { get; set; }
-        public T Value { get; set; }
     }
 }

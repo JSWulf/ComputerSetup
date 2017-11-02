@@ -60,6 +60,7 @@
             this.comboBoxPrinter.Name = "comboBoxPrinter";
             this.comboBoxPrinter.Size = new System.Drawing.Size(170, 21);
             this.comboBoxPrinter.TabIndex = 0;
+            this.comboBoxPrinter.SelectedIndexChanged += new System.EventHandler(this.comboBoxPrinter_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -123,6 +124,7 @@
             this.checkBoxPinUnpin.TabIndex = 6;
             this.checkBoxPinUnpin.Text = "Pin and Unpin Items";
             this.checkBoxPinUnpin.UseVisualStyleBackColor = true;
+            this.checkBoxPinUnpin.CheckedChanged += new System.EventHandler(this.checkBoxPinUnpin_CheckedChanged);
             // 
             // checkBoxManuals
             // 
@@ -133,6 +135,7 @@
             this.checkBoxManuals.TabIndex = 7;
             this.checkBoxManuals.Text = "Copy Manuals to Desktop";
             this.checkBoxManuals.UseVisualStyleBackColor = true;
+            this.checkBoxManuals.CheckedChanged += new System.EventHandler(this.checkBoxManuals_CheckedChanged);
             // 
             // checkBoxShortcuts
             // 
@@ -143,6 +146,7 @@
             this.checkBoxShortcuts.TabIndex = 8;
             this.checkBoxShortcuts.Text = "Create Shortcuts";
             this.checkBoxShortcuts.UseVisualStyleBackColor = true;
+            this.checkBoxShortcuts.CheckedChanged += new System.EventHandler(this.checkBoxShortcuts_CheckedChanged);
             // 
             // checkBoxInternetZones
             // 
@@ -153,6 +157,7 @@
             this.checkBoxInternetZones.TabIndex = 9;
             this.checkBoxInternetZones.Text = "Add Internet Zones";
             this.checkBoxInternetZones.UseVisualStyleBackColor = true;
+            this.checkBoxInternetZones.CheckedChanged += new System.EventHandler(this.checkBoxInternetZones_CheckedChanged);
             // 
             // buttonDPinUnpin
             // 
@@ -162,6 +167,7 @@
             this.buttonDPinUnpin.TabIndex = 10;
             this.buttonDPinUnpin.Text = "Details...";
             this.buttonDPinUnpin.UseVisualStyleBackColor = true;
+            
             // 
             // buttonDManuals
             // 
@@ -209,6 +215,7 @@
             this.buttonRun.TabIndex = 15;
             this.buttonRun.Text = "Run...";
             this.buttonRun.UseVisualStyleBackColor = true;
+            this.buttonRun.Click += new System.EventHandler(this.buttonRun_Click);
             // 
             // label2
             // 
@@ -230,27 +237,33 @@
             // 
             // comboBoxTimeZone
             // 
+            this.comboBoxTimeZone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTimeZone.FormattingEnabled = true;
             this.comboBoxTimeZone.Location = new System.Drawing.Point(102, 89);
             this.comboBoxTimeZone.Name = "comboBoxTimeZone";
             this.comboBoxTimeZone.Size = new System.Drawing.Size(170, 21);
             this.comboBoxTimeZone.TabIndex = 18;
+            this.comboBoxTimeZone.SelectedIndexChanged += new System.EventHandler(this.comboBoxTimeZone_SelectedIndexChanged);
             // 
             // comboBoxPlugged
             // 
+            this.comboBoxPlugged.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPlugged.FormattingEnabled = true;
             this.comboBoxPlugged.Location = new System.Drawing.Point(6, 46);
             this.comboBoxPlugged.Name = "comboBoxPlugged";
             this.comboBoxPlugged.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPlugged.TabIndex = 20;
+            this.comboBoxPlugged.SelectedIndexChanged += new System.EventHandler(this.comboBoxPlugged_SelectedIndexChanged);
             // 
             // comboBoxBattery
             // 
+            this.comboBoxBattery.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBattery.FormattingEnabled = true;
             this.comboBoxBattery.Location = new System.Drawing.Point(142, 46);
             this.comboBoxBattery.Name = "comboBoxBattery";
             this.comboBoxBattery.Size = new System.Drawing.Size(121, 21);
             this.comboBoxBattery.TabIndex = 21;
+            this.comboBoxBattery.SelectedIndexChanged += new System.EventHandler(this.comboBoxBattery_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -299,28 +312,28 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBoxPrinter;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBoxAllUsers;
-        private System.Windows.Forms.CheckBox checkBoxPrinter;
-        private System.Windows.Forms.CheckBox checkBoxTimeZone;
-        private System.Windows.Forms.CheckBox checkBoxPowerOptions;
-        private System.Windows.Forms.CheckBox checkBoxPinUnpin;
-        private System.Windows.Forms.CheckBox checkBoxManuals;
-        private System.Windows.Forms.CheckBox checkBoxShortcuts;
-        private System.Windows.Forms.CheckBox checkBoxInternetZones;
-        private System.Windows.Forms.Button buttonDPinUnpin;
-        private System.Windows.Forms.Button buttonDManuals;
-        private System.Windows.Forms.Button buttonDShortcuts;
-        private System.Windows.Forms.Button buttonDInternetZones;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonRun;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxTimeZone;
-        private System.Windows.Forms.ComboBox comboBoxPlugged;
-        private System.Windows.Forms.ComboBox comboBoxBattery;
-        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.ComboBox comboBoxPrinter;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.CheckBox checkBoxAllUsers;
+        public System.Windows.Forms.CheckBox checkBoxPrinter;
+        public System.Windows.Forms.CheckBox checkBoxTimeZone;
+        public System.Windows.Forms.CheckBox checkBoxPowerOptions;
+        public System.Windows.Forms.CheckBox checkBoxPinUnpin;
+        public System.Windows.Forms.CheckBox checkBoxManuals;
+        public System.Windows.Forms.CheckBox checkBoxShortcuts;
+        public System.Windows.Forms.CheckBox checkBoxInternetZones;
+        public System.Windows.Forms.Button buttonDPinUnpin;
+        public System.Windows.Forms.Button buttonDManuals;
+        public System.Windows.Forms.Button buttonDShortcuts;
+        public System.Windows.Forms.Button buttonDInternetZones;
+        public System.Windows.Forms.Button buttonCancel;
+        public System.Windows.Forms.Button buttonRun;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.ComboBox comboBoxTimeZone;
+        public System.Windows.Forms.ComboBox comboBoxPlugged;
+        public System.Windows.Forms.ComboBox comboBoxBattery;
+        public System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
