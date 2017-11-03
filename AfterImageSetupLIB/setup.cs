@@ -22,6 +22,8 @@ namespace AfterImageSetupLIB
 
         private static List<string> Output = new List<string>();
 
+        public static string ManualsPath = "";
+        public static string Template = "";
 
         public static string Run()
         {
@@ -152,8 +154,9 @@ namespace AfterImageSetupLIB
 
         private static void addFunctions()
         {
-            var getCode = readFile(@"Template.vbs");
-            
+            //var getCode = readFile(StartPath + @"\Template.vbs");
+            var getCode = readFile(Template);
+
             Output.AddRange(getCode);
         }
 
@@ -174,9 +177,10 @@ namespace AfterImageSetupLIB
                 //copy manuals
                 Debug.WriteLine("Manuals true");
 
+                var ManDir = Path.GetFileName(ManualsPath);
                 
                 //copy manuals to target desktop
-                Common.CopyDirectory("IT Information", TargetDesktop + "IT Information");
+                Common.CopyDirectory(ManualsPath, TargetDesktop + ManDir);
             }
 
             if (!Directory.Exists(TargetUser + StartupPath))

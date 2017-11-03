@@ -282,6 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(284, 330);
             this.Controls.Add(this.groupBox1);
@@ -301,7 +302,10 @@
             this.Controls.Add(this.checkBoxAllUsers);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxPrinter);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Computer Setup";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

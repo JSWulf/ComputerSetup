@@ -17,12 +17,15 @@ namespace LaptopSetup
 
         Properties.Settings DefSet = Properties.Settings.Default;
 
-        string Cdir = @"Conf\";
+        string StartPath;
+        string Cdir;
 
         public FormMain()
         {
             InitializeComponent();
 
+            //var args = Environment.GetCommandLineArgs();
+            
             var args = Environment.GetCommandLineArgs();
 
             if (args.Length > 2)
@@ -38,19 +41,15 @@ namespace LaptopSetup
 
             label1.Text = $"Target: {HostName}, User: {UserName}";
 
-            
+            StartPath = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+            Cdir = StartPath + @"\Conf\";
 
-            //Setup.HostName = HostName;
-            Setup.Printer = new Printer(Cdir + "Printers.conf");
-            //Setup.Printer.printer = Setup.Printer.GetPrinters()[0];
-            //Setup.PowerOptions = new PowerOptions(0, 0);
-            Setup.PinUnpin = new PinUnpin(Cdir + "PinUnpin.conf");
-            Setup.TimeZoneConfig = new TimeZoneConfig();
-            //Setup.TimeZoneConfig.TimeZone = Setup.TimeZoneConfig.TimeZones[0];
-            //Setup.Manuals = true;
-            //Setup.AddShortcut = new AddShortcut(Cdir + "Shortcuts.conf");
-
-            //Setup.InternetZone = new InternetZone(Cdir + "InternetZone.conf");
+            try
+            {
+                Setup.Printer = new Printer(Cdir + "Printers.conf");
+                Setup.PinUnpin = new PinUnpin(Cdir + "PinUnpin.conf");
+                Setup.TimeZoneConfig = new TimeZoneConfig();
+            } catch { MessageBox.Show("Cannot get to conf files -- exiting"); Application.Exit(); }
 
             comboBoxPrinter.Items.AddRange(Setup.Printer.GetPrinters().ToArray());
             comboBoxTimeZone.Items.AddRange(Setup.TimeZoneConfig.TimeZones.ToArray());
@@ -170,7 +169,15 @@ namespace LaptopSetup
         {
             //MessageBox.Show("" + comboBoxPlugged.SelectedIndex);
 
-            run();
+            try
+            {
+                run();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void run()
@@ -219,7 +226,8 @@ namespace LaptopSetup
         private bool SetTheSetup()
         {
             Setup.HostName = HostName;
-            
+            Setup.Template = StartPath + @"\Template.vbs";
+            Setup.ManualsPath = StartPath + @"\IT Information";
 
             if (checkBoxPrinter.Checked)
             {

@@ -30,6 +30,18 @@ namespace LaptopSetup.Tests
 
             Assert.Inconclusive();
         }
+
+        //[TestMethod]
+        public void CheckDirectory()
+        {
+            var args = Environment.GetCommandLineArgs();
+            var folder = Path.GetDirectoryName(args[0].ToString());
+
+            Console.WriteLine(folder);
+            Console.WriteLine(System.Reflection.Assembly.GetEntryAssembly().Location);
+
+            Assert.Inconclusive();
+        }
         
     }
 }
