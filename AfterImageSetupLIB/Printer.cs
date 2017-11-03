@@ -30,6 +30,12 @@ namespace AfterImageSetupLIB
             {
                 throw new Exception("Printer was declared but not set or selected");
             }
+
+            if (!printers.Contains(printer))
+            {
+                printerConfig.Add(printer);
+            }
+
             return "call SetPrinter(\"" + printer + "\")";
         }
     }

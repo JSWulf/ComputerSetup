@@ -54,6 +54,19 @@ namespace AfterImageSetupLIB
             return false;
         }
 
+        public void Add(string line)
+        {
+            var newItems = new List<string>();
+
+            foreach (var confLine in File.ReadAllLines(ConfigFile))
+            {
+                newItems.Add(confLine);
+            }
+            newItems.Add(line);
+
+            File.WriteAllLines(ConfigFile, newItems);
+        }
+
     }
     
 }
