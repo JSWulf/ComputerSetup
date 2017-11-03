@@ -151,7 +151,13 @@ namespace LaptopSetup
             DefSet.InternetZone = checkBoxInternetZones.Checked;
             DefSet.Save();
         }
-#endregion
+        private void checkBoxAllUsers_CheckedChanged(object sender, EventArgs e)
+        {
+            DefSet.AllUsers = checkBoxAllUsers.Checked;
+            DefSet.Save();
+        }
+
+        #endregion
 
         private void buttonDetailClick(object sender, EventArgs e)
         {
@@ -286,6 +292,6 @@ namespace LaptopSetup
             return output.ToString();
         }
 
-
+        
     }
 }

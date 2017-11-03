@@ -81,6 +81,7 @@
             this.checkBoxAllUsers.TabIndex = 2;
             this.checkBoxAllUsers.Text = "Apply to all users.";
             this.checkBoxAllUsers.UseVisualStyleBackColor = true;
+            this.checkBoxAllUsers.CheckedChanged += new System.EventHandler(this.checkBoxAllUsers_CheckedChanged);
             // 
             // checkBoxPrinter
             // 
@@ -167,7 +168,6 @@
             this.buttonDPinUnpin.TabIndex = 10;
             this.buttonDPinUnpin.Text = "Details...";
             this.buttonDPinUnpin.UseVisualStyleBackColor = true;
-            
             // 
             // buttonDManuals
             // 

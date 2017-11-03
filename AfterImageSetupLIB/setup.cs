@@ -35,7 +35,7 @@ namespace AfterImageSetupLIB
             }
             Output.Clear();
             addFunctions();
-            Output.Add("     Call run(\"cmd.exe / C gpupdate / force\")");
+            Output.Add("     Call run(\"cmd.exe /C gpupdate /force\")");
             if (TimeZoneConfig != null)
             {
                 //set timezone
