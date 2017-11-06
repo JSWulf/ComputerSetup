@@ -54,6 +54,11 @@ namespace AfterImageSetupLIB
 
         public void CreateShortcut()
         {
+            DesktopShortcut();
+        }
+
+        private void DesktopShortcut()
+        {
             Debug.WriteLine("Lnk: " + LnkFile);
             Debug.WriteLine("des: " + Description);
             Debug.WriteLine("hot: " + Hotkey);
@@ -65,12 +70,11 @@ namespace AfterImageSetupLIB
             //s.Description = Description;
             //s.Hotkey = Hotkey;
             if (!string.IsNullOrEmpty(Description))
-            {s.Description = Description;}
+            { s.Description = Description; }
             if (!string.IsNullOrEmpty(Hotkey))
             { s.Hotkey = Hotkey; }
             s.TargetPath = Target;
             s.Save();
         }
-
     }
 }
