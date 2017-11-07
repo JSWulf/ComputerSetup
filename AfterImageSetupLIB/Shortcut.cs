@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IWshRuntimeLibrary;
 using System.Diagnostics;
+using System.IO;
 
 namespace AfterImageSetupLIB
 {
@@ -34,7 +35,7 @@ namespace AfterImageSetupLIB
             get { return lnkFile; }
             set
             {
-                if (value.EndsWith(".lnk"))
+                if (value.EndsWith(".lnk") || value.EndsWith(".url"))
                 {
                     lnkFile = value;
                 }
@@ -54,7 +55,26 @@ namespace AfterImageSetupLIB
 
         public void CreateShortcut()
         {
-            DesktopShortcut();
+            if (Target.StartsWith("http", StringComparison.InvariantCultureIgnoreCase))
+            {
+                InternetShortcut();
+            }
+            else
+            {
+                DesktopShortcut();
+            }
+        }
+
+        private void InternetShortcut()
+        {
+            //string deskDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+
+            using (StreamWriter writer = new StreamWriter(LnkFile))
+            {
+                writer.WriteLine("[InternetShortcut]");
+                writer.WriteLine("URL=" + Target);
+                writer.Flush();
+            }
         }
 
         private void DesktopShortcut()
