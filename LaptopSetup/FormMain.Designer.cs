@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.comboBoxPrinter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxAllUsers = new System.Windows.Forms.CheckBox();
@@ -50,15 +51,16 @@
             this.comboBoxPlugged = new System.Windows.Forms.ComboBox();
             this.comboBoxBattery = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxPrinter
             // 
             this.comboBoxPrinter.FormattingEnabled = true;
-            this.comboBoxPrinter.Location = new System.Drawing.Point(102, 66);
+            this.comboBoxPrinter.Location = new System.Drawing.Point(12, 91);
             this.comboBoxPrinter.Name = "comboBoxPrinter";
-            this.comboBoxPrinter.Size = new System.Drawing.Size(170, 21);
+            this.comboBoxPrinter.Size = new System.Drawing.Size(260, 21);
             this.comboBoxPrinter.TabIndex = 0;
             this.comboBoxPrinter.SelectedIndexChanged += new System.EventHandler(this.comboBoxPrinter_SelectedIndexChanged);
             // 
@@ -97,7 +99,7 @@
             // checkBoxTimeZone
             // 
             this.checkBoxTimeZone.AutoSize = true;
-            this.checkBoxTimeZone.Location = new System.Drawing.Point(15, 91);
+            this.checkBoxTimeZone.Location = new System.Drawing.Point(15, 124);
             this.checkBoxTimeZone.Name = "checkBoxTimeZone";
             this.checkBoxTimeZone.Size = new System.Drawing.Size(77, 17);
             this.checkBoxTimeZone.TabIndex = 4;
@@ -119,7 +121,7 @@
             // checkBoxPinUnpin
             // 
             this.checkBoxPinUnpin.AutoSize = true;
-            this.checkBoxPinUnpin.Location = new System.Drawing.Point(15, 192);
+            this.checkBoxPinUnpin.Location = new System.Drawing.Point(15, 225);
             this.checkBoxPinUnpin.Name = "checkBoxPinUnpin";
             this.checkBoxPinUnpin.Size = new System.Drawing.Size(121, 17);
             this.checkBoxPinUnpin.TabIndex = 6;
@@ -130,7 +132,7 @@
             // checkBoxManuals
             // 
             this.checkBoxManuals.AutoSize = true;
-            this.checkBoxManuals.Location = new System.Drawing.Point(15, 215);
+            this.checkBoxManuals.Location = new System.Drawing.Point(15, 248);
             this.checkBoxManuals.Name = "checkBoxManuals";
             this.checkBoxManuals.Size = new System.Drawing.Size(148, 17);
             this.checkBoxManuals.TabIndex = 7;
@@ -141,7 +143,7 @@
             // checkBoxShortcuts
             // 
             this.checkBoxShortcuts.AutoSize = true;
-            this.checkBoxShortcuts.Location = new System.Drawing.Point(15, 238);
+            this.checkBoxShortcuts.Location = new System.Drawing.Point(15, 271);
             this.checkBoxShortcuts.Name = "checkBoxShortcuts";
             this.checkBoxShortcuts.Size = new System.Drawing.Size(105, 17);
             this.checkBoxShortcuts.TabIndex = 8;
@@ -152,7 +154,7 @@
             // checkBoxInternetZones
             // 
             this.checkBoxInternetZones.AutoSize = true;
-            this.checkBoxInternetZones.Location = new System.Drawing.Point(15, 261);
+            this.checkBoxInternetZones.Location = new System.Drawing.Point(15, 294);
             this.checkBoxInternetZones.Name = "checkBoxInternetZones";
             this.checkBoxInternetZones.Size = new System.Drawing.Size(117, 17);
             this.checkBoxInternetZones.TabIndex = 9;
@@ -162,43 +164,47 @@
             // 
             // buttonDPinUnpin
             // 
-            this.buttonDPinUnpin.Location = new System.Drawing.Point(197, 188);
+            this.buttonDPinUnpin.Location = new System.Drawing.Point(197, 221);
             this.buttonDPinUnpin.Name = "buttonDPinUnpin";
             this.buttonDPinUnpin.Size = new System.Drawing.Size(75, 23);
             this.buttonDPinUnpin.TabIndex = 10;
             this.buttonDPinUnpin.Text = "Details...";
             this.buttonDPinUnpin.UseVisualStyleBackColor = true;
+            this.buttonDPinUnpin.Visible = false;
             // 
             // buttonDManuals
             // 
-            this.buttonDManuals.Location = new System.Drawing.Point(197, 211);
+            this.buttonDManuals.Location = new System.Drawing.Point(197, 244);
             this.buttonDManuals.Name = "buttonDManuals";
             this.buttonDManuals.Size = new System.Drawing.Size(75, 23);
             this.buttonDManuals.TabIndex = 11;
             this.buttonDManuals.Text = "Details...";
             this.buttonDManuals.UseVisualStyleBackColor = true;
+            this.buttonDManuals.Visible = false;
             // 
             // buttonDShortcuts
             // 
-            this.buttonDShortcuts.Location = new System.Drawing.Point(197, 234);
+            this.buttonDShortcuts.Location = new System.Drawing.Point(197, 267);
             this.buttonDShortcuts.Name = "buttonDShortcuts";
             this.buttonDShortcuts.Size = new System.Drawing.Size(75, 23);
             this.buttonDShortcuts.TabIndex = 12;
             this.buttonDShortcuts.Text = "Details...";
             this.buttonDShortcuts.UseVisualStyleBackColor = true;
+            this.buttonDShortcuts.Visible = false;
             // 
             // buttonDInternetZones
             // 
-            this.buttonDInternetZones.Location = new System.Drawing.Point(197, 257);
+            this.buttonDInternetZones.Location = new System.Drawing.Point(197, 290);
             this.buttonDInternetZones.Name = "buttonDInternetZones";
             this.buttonDInternetZones.Size = new System.Drawing.Size(75, 23);
             this.buttonDInternetZones.TabIndex = 13;
             this.buttonDInternetZones.Text = "Details...";
             this.buttonDInternetZones.UseVisualStyleBackColor = true;
+            this.buttonDInternetZones.Visible = false;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(15, 297);
+            this.buttonCancel.Location = new System.Drawing.Point(15, 330);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 14;
@@ -209,7 +215,7 @@
             // buttonRun
             // 
             this.buttonRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRun.Location = new System.Drawing.Point(183, 291);
+            this.buttonRun.Location = new System.Drawing.Point(183, 324);
             this.buttonRun.Name = "buttonRun";
             this.buttonRun.Size = new System.Drawing.Size(89, 32);
             this.buttonRun.TabIndex = 15;
@@ -239,9 +245,9 @@
             // 
             this.comboBoxTimeZone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTimeZone.FormattingEnabled = true;
-            this.comboBoxTimeZone.Location = new System.Drawing.Point(102, 89);
+            this.comboBoxTimeZone.Location = new System.Drawing.Point(98, 122);
             this.comboBoxTimeZone.Name = "comboBoxTimeZone";
-            this.comboBoxTimeZone.Size = new System.Drawing.Size(170, 21);
+            this.comboBoxTimeZone.Size = new System.Drawing.Size(174, 21);
             this.comboBoxTimeZone.TabIndex = 18;
             this.comboBoxTimeZone.SelectedIndexChanged += new System.EventHandler(this.comboBoxTimeZone_SelectedIndexChanged);
             // 
@@ -272,7 +278,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.comboBoxPlugged);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(9, 114);
+            this.groupBox1.Location = new System.Drawing.Point(9, 147);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(269, 72);
             this.groupBox1.TabIndex = 22;
@@ -284,7 +290,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(284, 330);
+            this.ClientSize = new System.Drawing.Size(284, 368);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.comboBoxTimeZone);
             this.Controls.Add(this.buttonRun);
@@ -338,6 +344,7 @@
         public System.Windows.Forms.ComboBox comboBoxPlugged;
         public System.Windows.Forms.ComboBox comboBoxBattery;
         public System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
