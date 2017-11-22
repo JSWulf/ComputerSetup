@@ -23,15 +23,38 @@ namespace LaptopSetup
         public FormMain()
         {
             InitializeComponent();
-
-            //var args = Environment.GetCommandLineArgs();
             
             var args = Environment.GetCommandLineArgs();
 
             if (args.Length > 2)
             {
-                HostName = args[1];
-                UserName = args[2];
+                //HostName = args[1];
+                //UserName = args[2];
+                if (args.Length > 3)
+                {
+                    MessageBox.Show("Hide!");
+                }
+
+                for (int i = 1; i < args.Length; i++)
+                {
+                    if (args[i].Contains(':'))
+                    {
+                        var argSplit = args[i].Split(':');
+                        ShowSection(argSplit[1]);
+                        //MessageBox.Show(args[i]);
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(HostName))
+                        {
+                            HostName = args[i];
+                        }
+                        else if (string.IsNullOrEmpty(UserName))
+                        {
+                            UserName = args[i];
+                        }
+                    }
+                }
             }
             else
             {
@@ -65,6 +88,11 @@ namespace LaptopSetup
             buttonDShortcuts.Click += new EventHandler(buttonDetailClick);
             buttonDInternetZones.Click += new EventHandler(buttonDetailClick);
 
+        }
+
+        private void ShowSection(string v)
+        {
+            throw new NotImplementedException();
         }
 
         public string HostName { get; set; }
@@ -227,7 +255,7 @@ namespace LaptopSetup
         {
             Setup.HostName = HostName;
             Setup.Template = StartPath + @"\Template.vbs";
-            Setup.ManualsPath = StartPath + @"\IT Information";
+            Setup.ManualsPath = StartPath + @"\IT Guides";
 
             if (checkBoxPrinter.Checked)
             {

@@ -7,7 +7,7 @@
     <ProjectGuid>{5B20E958-F188-4FE6-B87A-0BA115326B8D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>LaptopSetup</RootNamespace>
-    <AssemblyName>LaptopSetup</AssemblyName>
+    <AssemblyName>ComputerSetup</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

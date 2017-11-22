@@ -44,7 +44,6 @@
     <Compile Include="Common.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="InternetZone.cs" />
-    <Compile Include="Manuals.cs" />
     <Compile Include="PinUnpin.cs" />
     <Compile Include="PowerOptions.cs" />
     <Compile Include="Printer.cs" />

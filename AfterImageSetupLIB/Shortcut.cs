@@ -41,7 +41,7 @@ namespace AfterImageSetupLIB
                 }
                 else
                 {
-                    throw new Exception("shortcut file must end in .lnk");
+                    throw new Exception("shortcut file must end in .lnk or .url");
                 }
             }
         }
@@ -55,6 +55,11 @@ namespace AfterImageSetupLIB
 
         public void CreateShortcut()
         {
+            var ShortcutDirectory = Path.GetDirectoryName(LnkFile);
+            if (!Directory.Exists(ShortcutDirectory))
+            {
+                Directory.CreateDirectory(ShortcutDirectory);
+            }
             if (Target.StartsWith("http", StringComparison.InvariantCultureIgnoreCase))
             {
                 InternetShortcut();
