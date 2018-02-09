@@ -33,14 +33,20 @@ namespace LaptopSetup
                 if (args.Length > 3)
                 {
                     MessageBox.Show("Hide!");
+                    //run function to hide all forms... except for run and cancel
                 }
 
                 for (int i = 1; i < args.Length; i++)
                 {
                     if (args[i].Contains(':'))
                     {
+                        
+
                         var argSplit = args[i].Split(':');
+                        //already looping...
+
                         ShowSection(argSplit[1]);
+                        
                         //MessageBox.Show(args[i]);
                     }
                     else
@@ -90,6 +96,10 @@ namespace LaptopSetup
 
         }
 
+        /// <summary>
+        /// Tells the form which group of items to show separated by a switch statement.
+        /// </summary>
+        /// <param name="v"></param>
         private void ShowSection(string v)
         {
             throw new NotImplementedException();
