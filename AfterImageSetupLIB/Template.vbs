@@ -2,7 +2,7 @@ Option Explicit
 On Error Resume Next
 Dim strAllUsersProgramsPath, objShell, objFSO, wshShell, objAllUsersProgramsFolder, strAppData, objFolder, objFolderItem, colVerbs, objVerb, strProfile
 Dim Printer, strScript
-Dim objReg, strKeyPath
+Dim objReg, strKeyPath, KeyPath
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Const CSIDL_COMMON_PROGRAMS = &H17
 Const CSIDL_PROGRAMS = &H2
@@ -60,5 +60,12 @@ strProfile = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
 		wshShell.run torun
 	End Sub
 
+'*** Show IE favorites Bar
+	Sub ShowFavorites()
+		KeyPath = "Software\Microsoft\Internet Explorer\MINIE\"
+		objReg.SetDWORDValue HKEY_CURRENT_USER, KeyPath, "LinksBandEnabled", 1
+	End Sub
+	
+	Call ShowFavorites()
 '*** Run Commands:
 
