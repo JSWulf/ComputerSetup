@@ -17,6 +17,7 @@ namespace AfterImageSetupLIB
         private List<string> timeZones = new List<string>() {
                 "Pacific Standard Time",
                 "Mountain Daylight Time",
+                "US Mountain Standard Time",
                 "Central Standard Time",
                 "Eastern Standard Time",
                 "W. Europe Standard Time"
