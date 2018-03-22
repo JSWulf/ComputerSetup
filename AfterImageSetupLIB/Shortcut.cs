@@ -22,8 +22,8 @@ namespace AfterImageSetupLIB
         {
             LnkFile = shortcut;
             Target = target;
-            Debug.WriteLine(LnkFile);
-            Debug.WriteLine(Target);
+            //Debug.WriteLine(LnkFile);
+            //Debug.WriteLine(Target);
         }
         /// <summary>
         /// *.lnk file
@@ -84,10 +84,10 @@ namespace AfterImageSetupLIB
 
         private void DesktopShortcut()
         {
-            Debug.WriteLine("Lnk: " + LnkFile);
-            Debug.WriteLine("des: " + Description);
-            Debug.WriteLine("hot: " + Hotkey);
-            Debug.WriteLine("tar: " + Target);
+            //Debug.WriteLine("Lnk: " + LnkFile);
+            //Debug.WriteLine("des: " + Description);
+            //Debug.WriteLine("hot: " + Hotkey);
+            //Debug.WriteLine("tar: " + Target);
             //object shDesktop = (object)"Desktop";
             WshShell shell = new WshShell();
             //string shortcutAddress = (string)shell.SpecialFolders.Item(ref shDesktop) + @"\Notepad.lnk";

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="AddShortcutTests.cs" />
     <Compile Include="ConfigTests.cs" />
+    <Compile Include="MassPrinterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetupTests.cs" />
   </ItemGroup>

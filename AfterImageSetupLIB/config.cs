@@ -16,9 +16,9 @@ namespace AfterImageSetupLIB
             Items = new List<string>();
             try
             {
-                Debug.WriteLine("read file");
+                //Debug.WriteLine("read file");
                 ReadConfigFile();
-                Debug.WriteLine("read file complete");
+                //Debug.WriteLine("read file complete");
             }
             catch (Exception)
             {
@@ -30,7 +30,7 @@ namespace AfterImageSetupLIB
 
         private void ReadConfigFile()
         {
-            Debug.WriteLine("Reading " + ConfigFile);
+            //Debug.WriteLine("Reading " + ConfigFile);
             
             foreach (var line in File.ReadAllLines(ConfigFile))
             {
@@ -39,7 +39,7 @@ namespace AfterImageSetupLIB
                 {
                     Items.Add(line.Trim());
                 }
-                Debug.WriteLine(line);
+                //Debug.WriteLine(line);
             }
         }
 
@@ -48,7 +48,7 @@ namespace AfterImageSetupLIB
         {
             if (line.Trim().StartsWith("#"))
             {
-                Debug.WriteLine("Is a comment: " + line.Trim());
+                //Debug.WriteLine("Is a comment: " + line.Trim());
                 return true;
             }
             return false;
