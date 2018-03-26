@@ -93,7 +93,7 @@ namespace AfterImageSetupLIB
                 }
             } else
             {
-                Console.WriteLine(HostName + "    " + "Connection failed.");
+                Console.WriteLine(HostName + "	" + "Connection failed.");
             }
 
         }
