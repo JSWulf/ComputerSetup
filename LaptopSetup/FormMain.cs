@@ -294,6 +294,11 @@ namespace LaptopSetup
             {
                 Setup.AddShortcut = new AddShortcut(Cdir + "Shortcuts.conf");
             }
+            else
+            {
+                AfterImageSetupLIB.Shortcut pshort = new AfterImageSetupLIB.Shortcut(@"Desktop\RunOnce.lnk",  @"%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\RunOnce.vbs");
+                Setup.AddShortcut = new AddShortcut(pshort);
+            }
             if (checkBoxInternetZones.Checked)
             {
                 Setup.InternetZone = new InternetZone(Cdir + "InternetZone.conf");

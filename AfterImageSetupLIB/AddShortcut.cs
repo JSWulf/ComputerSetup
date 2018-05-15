@@ -18,29 +18,43 @@ namespace AfterImageSetupLIB
             Host = HostName;
             User = UserName;
         }
+        public AddShortcut(Shortcut shortcut)
+        {
+            SingleShortcut = shortcut;
+        }
 
         public string Host { get; set; }
         public string User { get; set; }
 
         Config ShortcutConfig;
 
+        Shortcut SingleShortcut;
+
         public void CreateShortcuts(string UserProfile)
         {
-            foreach (var line in ShortcutConfig.Items)
+            if (ShortcutConfig != null)
             {
-                var s_info = line.Split(',');
+                foreach (var line in ShortcutConfig.Items)
+                {
+                    var s_info = line.Split(',');
 
-                try
-                {
-                    Shortcut shortcut = new Shortcut(UserProfile + @"\" + s_info[0].Trim(), s_info[1].Trim());
-                    shortcut.CreateShortcut();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Problem with " + line + Environment.NewLine +
-                        e.Message);
+                    try
+                    {
+                        Shortcut shortcut = new Shortcut(UserProfile + @"\" + s_info[0].Trim(), s_info[1].Trim());
+                        shortcut.CreateShortcut();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Problem with " + line + Environment.NewLine +
+                            e.Message);
+                    }
                 }
             }
+            else if (SingleShortcut != null)
+            {
+                SingleShortcut.CreateShortcut();
+            }
+            
         }
     }
 }
