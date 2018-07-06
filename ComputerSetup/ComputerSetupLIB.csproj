@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FA16C979-1DFA-4530-B6B4-88FA3E1A2949}</ProjectGuid>
+    <ProjectGuid>{B906170F-B31A-4411-AAA9-52A18E605E4E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AfterImageSetupLIB</RootNamespace>
-    <AssemblyName>AfterImageSetupLIB</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>ComputerSetup</RootNamespace>
+    <AssemblyName>ComputerSetup</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,41 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddShortcut.cs" />
-    <Compile Include="Common.cs" />
-    <Compile Include="Config.cs" />
-    <Compile Include="EmailNormal.cs" />
-    <Compile Include="HiddenFiles.cs" />
+    <Compile Include="FileAssociation.cs" />
+    <Compile Include="FileOptions.cs" />
     <Compile Include="InternetZone.cs" />
-    <Compile Include="MassPrinter.cs" />
     <Compile Include="PinUnpin.cs" />
-    <Compile Include="PowerOptions.cs" />
+    <Compile Include="PowerSettings.cs" />
     <Compile Include="Printer.cs" />
-    <Compile Include="SetAdobe.cs" />
-    <Compile Include="SetLocation.cs" />
-    <Compile Include="setup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shortcut.cs" />
-    <Compile Include="TimeZoneConfig.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="InternetZone.conf" />
-    <None Include="Printers.conf" />
-    <None Include="Shortcuts.conf" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PinUnpin.conf" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="IWshRuntimeLibrary">
-      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+    <Compile Include="Setup.cs" />
+    <Compile Include="TimeZone.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
